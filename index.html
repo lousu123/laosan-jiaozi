@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老三饺子馆 · 全案运营方案</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",sans-serif;
+       background:#F5F4EF;color:#1F2420;line-height:1.8;font-size:15px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:530px;margin:0 auto;background:#F5F4EF;min-height:100vh;}
+
+  .hero{background:linear-gradient(160deg,#0E1A12 0%,#1E3A26 55%,#3C6B45 100%);
+        padding:37px 24px 31px;color:#fff;position:relative;overflow:hidden;}
+  .hero::after{content:"";position:absolute;right:-60px;bottom:-80px;width:240px;height:240px;
+        border-radius:50%;background:radial-gradient(circle,rgba(150,255,170,.2),transparent 70%);}
+  .hero .tag{display:inline-block;font-size:11px;letter-spacing:1px;color:#9FE0AC;
+        border:1px solid rgba(159,224,172,.4);padding:4px 11px;border-radius:20px;margin-bottom:15px;}
+  .hero h1{font-size:24px;font-weight:800;line-height:1.48;}
+  .hero h1 em{font-style:normal;color:#C8F5CF;}
+  .hero p{font-size:13px;color:#94B39C;margin-top:12px;line-height:1.72;}
+  .hero .kpi{display:flex;gap:9px;margin-top:19px;position:relative;z-index:2;}
+  .hero .kpi div{flex:1;background:rgba(255,255,255,.07);border-radius:10px;padding:10px 4px;text-align:center;border:1px solid rgba(255,255,255,.08);}
+  .hero .kpi b{display:block;font-size:16px;color:#C8F5CF;font-weight:800;}
+  .hero .kpi span{font-size:10px;color:#82A38B;}
+
+  .sec{padding:26px 20px 4px;}
+  .sec h2{font-size:17px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:9px;line-height:1.5;}
+  .sec h2 i{font-style:normal;font-size:16px;}
+  .card{background:#fff;border-radius:14px;padding:19px 17px;margin-bottom:14px;
+        box-shadow:0 1px 3px rgba(31,36,32,.06);border:1px solid rgba(31,36,32,.05);}
+  .card h3{font-size:15px;font-weight:800;margin-bottom:10px;color:#171C19;}
+  .card p{font-size:14.2px;color:#49514C;margin-bottom:10px;}
+  .card p:last-child{margin-bottom:0;}
+  .lead{background:linear-gradient(135deg,#1E3A26,#3C6B45);color:#fff;border:none;}
+  .lead h3{color:#C8F5CF;font-size:15.5px;}
+  .lead p{color:#DDEFE1;font-size:14.5px;line-height:1.88;}
+  .lead strong{color:#F0FFF3;}
+
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0;}
+  th{background:#F2F6F1;color:#5B6A5E;font-weight:700;text-align:left;padding:9px 8px;
+     border-bottom:1px solid #DCE7DD;font-size:12.5px;}
+  td{padding:9px 8px;border-bottom:1px solid #EEF3EE;color:#3B443C;vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  .hot{color:#B9420B;font-weight:800;}
+  .ok{color:#2E6B3E;font-weight:700;}
+  .self{background:#F5FBF6;}
+
+  .num{display:inline-flex;width:21px;height:21px;border-radius:7px;background:#2E6B3E;color:#fff;
+       font-size:11.5px;font-weight:800;align-items:center;justify-content:center;margin-right:8px;flex-shrink:0;}
+  .li{display:flex;font-size:14.2px;color:#49514C;margin-bottom:12px;line-height:1.85;}
+  .li:last-child{margin-bottom:0;}
+  .li b{color:#171C19;}
+
+  .warn{background:#FDF5E6;border-left:3px solid #CFA03C;border-radius:0 11px 11px 0;
+        padding:14px 16px;font-size:13.8px;color:#7A5A18;margin-bottom:14px;line-height:1.82;}
+  .warn b{color:#8E640C;}
+  .danger{background:#FBEEE9;border-left:3px solid #B8503F;border-radius:0 11px 11px 0;
+        padding:14px 16px;font-size:13.8px;color:#7F2A20;margin-bottom:14px;line-height:1.82;}
+  .danger b{color:#8E1F0E;}
+  .good{background:#EFF7EC;border-left:3px solid #4A7A38;border-radius:0 11px 11px 0;
+        padding:14px 16px;font-size:13.8px;color:#32551F;margin-bottom:14px;line-height:1.82;}
+  .good b{color:#2A4A18;}
+
+  .kpis{display:flex;gap:8px;margin-bottom:14px;}
+  .kpis div{flex:1;background:#fff;border-radius:12px;padding:14px 8px;text-align:center;
+            border:1px solid rgba(31,36,32,.06);}
+  .kpis b{display:block;font-size:17px;font-weight:800;color:#2E6B3E;margin-bottom:2px;}
+  .kpis span{font-size:10.5px;color:#8A948C;line-height:1.4;display:block;}
+
+  .mapbox{background:#fff;border-radius:14px;padding:8px 6px 2px;margin-bottom:14px;
+          border:1px solid rgba(31,36,32,.05);box-shadow:0 1px 3px rgba(31,36,32,.06);}
+  .mapbox svg{width:100%;height:auto;display:block;}
+  .mapnote{font-size:12px;color:#8A948C;padding:0 12px 12px;line-height:1.6;}
+
+  .tl{position:relative;padding-left:23px;}
+  .tl::before{content:"";position:absolute;left:6px;top:7px;bottom:7px;width:2px;background:#DCE7DD;}
+  .tl-item{position:relative;margin-bottom:15px;font-size:14px;color:#49514C;line-height:1.8;}
+  .tl-item:last-child{margin-bottom:0;}
+  .tl-item::before{content:"";position:absolute;left:-22px;top:7px;width:10px;height:10px;
+                   border-radius:50%;background:#2E6B3E;border:2px solid #F5F4EF;}
+  .tl-item b{color:#171C19;display:block;margin-bottom:2px;}
+
+  .foot{padding:26px 20px 42px;text-align:center;}
+  .foot p{font-size:12px;color:#9AA39E;line-height:1.95;}
+  .foot b{color:#49514C;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <span class="tag">天津 · 滨海新区 · 塘沽（尊豪市场一带）</span>
+    <h1>老三饺子馆<br><em>全案运营方案</em></h1>
+    <p>小吃快餐 · 饺子｜新店开业期<br>点评 0 分 · 0 条评价 · 待签约</p>
+    <div class="kpi">
+      <div><b>0 分</b><span>点评星级</span></div>
+      <div><b>0 条</b><span>点评评价</span></div>
+      <div><b>310m</b><span>尊豪市场</span></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2><i>🎯</i>一、实话先说：这是一家小店，方案只做四件事</h2>
+    <div class="card lead">
+      <h3>快餐饺子店，做不了大而全的运营。</h3>
+      <p>你的体量、品类和客群，决定的是一条窄路：<strong>500 米内的人、一天两顿、高频复购。</strong>给你一套十章的复杂打法，落地不了，等于没做。</p>
+      <p>所以这份方案只有四件事：<strong>① 让 500 米内的人知道这家新店；② 把评价从 0 做到 30 条；③ 用套餐把客单从"一碗饺子"拉到"一顿饭"；④ 外卖做成第二份收入。</strong></p>
+      <p><strong>四件做完，一家新开的饺子馆就能站住。</strong>别指望它变成网红店，它该做的是"这条街上最稳的那家"。</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2><i>📍</i>二、位置：310 米就是尊豪市场</h2>
+    <div class="mapbox">
+      <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="250" cy="250" r="167" fill="none" stroke="#DCE7DD" stroke-width="1" stroke-dasharray="4 4"/>
+        <circle cx="250" cy="250" r="84" fill="none" stroke="#DCE7DD" stroke-width="1" stroke-dasharray="4 4"/>
+        <text x="250" y="18" font-size="11" fill="#B9C4BC" text-anchor="middle">北</text>
+        <text x="250" y="492" font-size="11" fill="#B9C4BC" text-anchor="middle">南</text>
+        <text x="4" y="252" font-size="11" fill="#B9C4BC">西</text>
+        <text x="496" y="252" font-size="11" fill="#B9C4BC" text-anchor="end">东</text>
+        <text x="400" y="86" font-size="10" fill="#C8D3CB">1km</text>
+
+        <circle cx="250" cy="250" r="10" fill="#2E6B3E"/>
+        <circle cx="250" cy="250" r="18" fill="none" stroke="#2E6B3E" stroke-width="1.4" opacity="0.35"/>
+        <text x="250" y="288" font-size="12.5" font-weight="700" fill="#235532" text-anchor="middle">老三饺子馆</text>
+
+        <circle cx="199" cy="250" r="6" fill="#6B7672"/>
+        <text x="196" y="238" font-size="10" text-anchor="middle" fill="#3B443C">尊豪市场 310m</text>
+
+        <circle cx="166" cy="250" r="7" fill="#C2410C"/>
+        <text x="162" y="268" font-size="10" text-anchor="middle" fill="#9A2F06">众福记饺子楼 501m</text>
+
+        <circle cx="334" cy="318" r="7" fill="#2A6FA8"/>
+        <text x="342" y="322" font-size="10" font-weight="700" fill="#1B4E78">兴顺斋 4.2·996m</text>
+
+        <circle cx="364" cy="250" r="6" fill="#8A948C"/>
+        <text x="372" y="238" font-size="10" fill="#5B6A5E">东北大馅饺子 1186m</text>
+      </svg>
+      <div class="mapnote">按 POI 经纬度实算方位与直线距离 · 数据来源：海鸥 CRM</div>
+    </div>
+
+    <div class="card">
+      <div class="li"><span class="num">1</span><div><b>你的生意半径就是 500 米。</b>310 米是尊豪市场，1.2 公里是洋货市场。<b>买菜的人、逛市场的人，是这个位置每天固定的人流。</b></div></div>
+      <div class="li"><span class="num">2</span><div><b>饺子是"顺路吃"的品，不是"专门去"的品。</b>没人会为了一碗饺子开车 3 公里。<b>所以做深 500 米，比做广 5 公里重要得多。</b></div></div>
+      <div class="li"><span class="num">3</span><div><b>老城区居民 + 市场人流 = 早餐和午餐是主战场。</b>晚市是次要的，因为你周围没有写字楼。</div></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2><i>📊</i>三、竞对：2 公里内 8 家饺子馆，但只有 1 家把线上做起来了</h2>
+    <div class="card">
+      <table>
+        <tr><th>门店</th><th>距离</th><th>星级</th><th>评价</th><th>人均</th></tr>
+        <tr class="self"><td><b>老三饺子馆（本店）</b></td><td>—</td><td class="hot">0</td><td class="hot">0</td><td>待定</td></tr>
+        <tr><td>众福记饺子楼（天津菜小船海鲜）</td><td class="hot">501m 西</td><td>0.0</td><td>0</td><td>—</td></tr>
+        <tr><td><b>清真兴顺斋饺子馆（福苑居店）</b></td><td>996m 东南</td><td class="ok">4.2</td><td>71</td><td>55</td></tr>
+        <tr><td>东北大馅饺子馆（杭州道店）</td><td>1186m 东</td><td>3.5</td><td>5</td><td>24</td></tr>
+        <tr><td>春竹饺子馆（湛江里店）</td><td>1414m 东北</td><td>3.5</td><td>10</td><td>24</td></tr>
+        <tr><td>家门口饺子馆</td><td>2201m 东</td><td>0.0</td><td>0</td><td>33</td></tr>
+        <tr><td>东北饺子馆</td><td>2547m 东</td><td>3.6</td><td>3</td><td>54</td></tr>
+      </table>
+      <p style="margin-top:9px;">同区域还有快餐类：福人聚佰味快餐（1252m，3.9/10/16）、百万快餐（1819m，3.5/8/13）。</p>
+    </div>
+
+    <div class="good">
+      <b>这是好消息：整个 2 公里范围内，饺子馆只有 1 家评分在 4 分以上（兴顺斋 4.2 分 / 71 条）。</b>其余全是 0 分或 3.5—3.6，评价个位数。<b>说明这一带的饺子馆普遍不做线上经营。</b>你只要把评价做到 30 条、评分 4.5，就能在搜索里排到前面。
+    </div>
+
+    <div class="warn">
+      <b>但 501 米的"众福记饺子楼"要盯住。</b>它名字里有"饺子楼""天津菜""小船海鲜""皮皮虾锅贴"——<b>品类比你宽、体量像比你大。</b>不过它现在 0 分 0 条评价，说明也没做线上。<b>谁先把线上做起来，谁就先吃到这一片的新客。</b>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2><i>🍽️</i>四、产品：不加大而全，把"一碗饺子"变成"一顿饭"</h2>
+
+    <div class="card">
+      <h3>第一步：套餐结构（这是最快见效的动作）</h3>
+      <p>顾客一个人进来，只点一碗饺子 15—20 元。<b>但他其实还想要一碟小菜、一碗汤。</b>不给他配，客单就锁死在 18 元。</p>
+      <table>
+        <tr><th>套餐</th><th>内容</th><th>建议价</th><th>作用</th></tr>
+        <tr class="self"><td><b>一人食</b></td><td>饺子 15 只 + 小菜 + 汤</td><td class="ok">22—26</td><td><b>主力款，把客单从 18 拉到 24</b></td></tr>
+        <tr><td>两人餐</td><td>饺子 30 只 + 2 小菜 + 2 汤</td><td class="ok">42—48</td><td>家人、朋友</td></tr>
+        <tr><td>家庭装（打包）</td><td>生饺 60 只 + 蘸料</td><td class="ok">45—55</td><td><b>菜市场客群的刚需，回家自己煮</b></td></tr>
+        <tr><td>早餐组合</td><td>饺子/馄饨 + 豆浆/粥</td><td class="ok">10—14</td><td>早上市场人流</td></tr>
+      </table>
+      <p style="margin-top:9px;"><b>特别提一下"生饺打包"这一档：</b>你 310 米就是菜市场，<b>买菜的人顺手带一盒生饺子回家，是这一带最自然的消费</b>。这一档不用后厨现煮、不占座位、毛利还高。</p>
+    </div>
+
+    <div class="card">
+      <h3>第二步：招牌只做 2—3 种馅</h3>
+      <p>小店最忌讳上来就做十种馅——<b>备料乱、损耗大、出餐慢。</b></p>
+      <p><b>建议：</b>2 个招牌馅（一个经典猪肉白菜/韭菜，一个差异化如虾仁/鲅鱼） + 2 个常规馅 + 1 个季节款。<b>把"招牌"两个字打在门头和点评首图上</b>，让顾客一眼知道该点哪个。</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2><i>⭐</i>五、评价：从 0 到 30 条，这是新店唯一的窗口</h2>
+    <div class="card">
+      <p>你现在 <b>0 分、0 条评价</b>——顾客搜到你，看到的是一个"没人说过话的店"。<b>新店期顾客有新鲜感、愿意写，过了这一个月，成本翻三倍。</b></p>
+      <div class="li"><span class="num">1</span><div><b>桌卡 + 一句话：</b>"帮我们写条评价，下次来送个凉菜"。<b>不要教怎么写，教了他就不写了。</b></div></div>
+      <div class="li"><span class="num">2</span><div><b>团购核销时引导：</b>核销完的客人最容易写（已经付钱、体验完整）。<b>设成固定话术。</b></div></div>
+      <div class="li"><span class="num">3</span><div><b>差评当天回：</b>0 分阶段的店，<b>一条差评能压掉 0.5 分</b>。必须当天处理。</div></div>
+      <div class="li"><span class="num">4</span><div><b>每周 5—8 条，一个月 20—30 条。</b>不要一次冲太多，平台会判定异常。</div></div>
+    </div>
+    <div class="warn">
+      <b>目标定这样比较现实：</b>30 天 15 条、60 天 25 条、90 天 30 条以上，评分 4.5+。<b>这个目标一旦达成，你在这 2 公里内就是评分最高的饺子馆之一</b>——因为兴顺斋只有 4.2。
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2><i>🛵</i>六、外卖：这家店的第二份收入</h2>
+    <div class="card">
+      <p><b>快餐饺子是最适合做外卖的品类之一</b>——出餐快、不需要服务员、一个人也能吃。<b>但有一个必须避开的坑。</b></p>
+      <table>
+        <tr><th>能送</th><th>不能送</th></tr>
+        <tr class="self"><td><b>煎饺 / 锅贴</b>（耐配送、有脆底）</td><td class="hot"><b>水饺（煮好十分钟就坨、皮粘一团）</b></td></tr>
+        <tr><td>凉菜、小菜</td><td>汤面、带汤的主食</td></tr>
+        <tr><td><b>生饺外送</b>（顾客自己煮，完全没有坨的风险）</td><td>现炸的东西</td></tr>
+        <tr><td>馄饨（汤单独密封）</td><td>—</td></tr>
+      </table>
+      <p style="margin-top:9px;"><b>所以外卖主力应该是：煎饺 + 凉菜 + 生饺 + 馄饨，不是水饺。</b>这一条如果搞错，第一个月就会攒一堆"送到了坨了"的差评。</p>
+    </div>
+
+    <div class="card">
+      <h3>外卖定价要算清（一单的账）</h3>
+      <table>
+        <tr><th>项目</th><th>金额（以 26 元套餐为例）</th></tr>
+        <tr><td>顾客付</td><td>26 元</td></tr>
+        <tr><td>平台抽点（约 20%）</td><td class="hot">−5.2 元</td></tr>
+        <tr><td>打包耗材</td><td class="hot">−1.8 元</td></tr>
+        <tr><td>食材（约 40%）</td><td class="hot">−10.4 元</td></tr>
+        <tr class="self"><td><b>到手毛利</b></td><td class="ok"><b>约 8.6 元／单</b></td></tr>
+      </table>
+      <p style="margin-top:9px;">一天 20 单 ≈ 172 元毛利/天 ≈ 4800 元/月。<b>听着不多，但这是坐在店里等不来的钱。</b></p>
+    </div>
+
+    <div class="danger">
+      <b>一条底线：外卖价不能低于堂食价。</b>低价饺子品类最怕"外卖打折、堂食原价"，<b>结果是堂食客人也跑去点外卖</b>，你多付一份抽点。要便宜就两边一起便宜，要赚钱就两边一起守住。
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2><i>🚀</i>七、90 天节奏</h2>
+    <div class="card">
+      <div class="tl">
+        <div class="tl-item"><b>第 1—2 周 · 基建</b>店铺信息补全（品类词：饺子/馄饨/早餐/生饺外带）、菜品图、招牌馅定稿、套餐上团购</div>
+        <div class="tl-item"><b>第 3—4 周 · 评价启动</b>桌卡与话术落地，目标 10 条评价；外卖上架，只上煎饺/凉菜/生饺</div>
+        <div class="tl-item"><b>第 2 个月 · 做深 500 米</b>菜市场方向做"生饺打包"宣传；早餐时段（如做）单独推；评价到 20 条</div>
+        <div class="tl-item"><b>第 3 个月 · 稳盘</b>评价 30 条、评分 4.5；外卖稳定 20 单/天；调一次套餐价格结构</div>
+      </div>
+    </div>
+    <div class="warn">
+      <b>90 天三个指标：</b>① 评价 ≥ 30 条、评分 ≥ 4.5；② 套餐占比 ≥ 50%（也就是一半客人点套餐）；③ 外卖日均 ≥ 15 单。<b>三条做到两条算成功。</b>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2><i>🧾</i>八、SOP（每周做什么）</h2>
+    <div class="card">
+      <table>
+        <tr><th>频率</th><th>动作</th></tr>
+        <tr><td>每日</td><td>评价监控与回复、差评申诉</td></tr>
+        <tr class="self"><td><b>每周</b></td><td><b>看三个数：评价新增、套餐占比、外卖单量</b>；对一次 501 米众福记的动静</td></tr>
+        <tr><td>每周</td><td>外卖差评归因：<b>是坨了、凉了还是少了</b>，对应改包装或换品</td></tr>
+        <tr><td>每月</td><td>套餐调价与换品；月报；<b>盘一次损耗（哪种馅剩得多就减量）</b></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2><i>💰</i>九、报价与回本</h2>
+    <div class="card">
+      <table>
+        <tr><th>方案</th><th>周期</th><th>价格</th><th>折月</th><th>折日</th></tr>
+        <tr><td>标准价</td><td>三个月一期</td><td>12000 元</td><td>4000 元</td><td>133 元</td></tr>
+        <tr class="self"><td><b>本次特惠</b></td><td>三个月一期</td><td class="hot"><b>8000 元</b></td><td>2667 元</td><td>89 元</td></tr>
+      </table>
+      <p style="margin-top:10px;">按饺子快餐毛利 60% 测算：<b>每天多做 148 元流水即可回本</b>——按人均 24 元算，<b>就是每天多来 6 位客人。</b></p>
+      <p><b>6 位客人是什么概念：</b>早餐多卖 3 份、外卖多来 3 单就够。<b>对小店来说，这是开业后自然能跨过的线。</b></p>
+    </div>
+    <div class="warn">
+      <b>不含项：</b>不含菜品实拍（手机拍即可）、不含推广费（直接充平台）、不含物料印刷。<b>三个月一期，不押年框。</b>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2><i>🤝</i>十、需要门店配合的四件事</h2>
+    <div class="card">
+      <div class="li"><span class="num">1</span><div><b>馅要稳定。</b>饺子店的口碑就一句话——"还是那个味"。<b>换一次馅，老客就走一批。</b></div></div>
+      <div class="li"><span class="num">2</span><div><b>店员愿意开口说那句话。</b>"帮我们写条评价，下次送个凉菜"——<b>说不出口，评价永远到不了 30 条。</b></div></div>
+      <div class="li"><span class="num">3</span><div><b>外卖只用煎饺和生饺。</b>水饺别上外卖，<b>坨了是必然的，不是偶然的。</b></div></div>
+      <div class="li"><span class="num">4</span><div><b>接受"慢慢来"。</b>小店做不了爆发，只能靠每天多几个熟客。<b>三个月是一个合理周期，不是一个月。</b></div></div>
+    </div>
+    <div class="card lead">
+      <h3>一句话总结</h3>
+      <p>老三饺子馆开在一个<strong>市场旁边、饺子馆普遍不做线上</strong>的位置——这反而是机会。<strong>四件事：把套餐做出来、把评价从 0 做到 30、把外卖只上煎饺和生饺、把 500 米内的人做熟。</strong></p>
+      <p><strong>它不需要变成网红店，需要变成"这条街上那家最稳的饺子馆"。</strong></p>
+    </div>
+  </div>
+
+  <div class="foot">
+    <p><b>数据来源</b>：海鸥 CRM（门店信息、塘沽商圈饺子及快餐类在营门店、竞对星级/评价/人均、经纬度实算距离）<br>
+    数据时间：2026-11-25</p>
+    <p style="margin-top:8px;">回本测算为假设口径；星级、单量、营业额均不作承诺</p>
+  </div>
+
+</div>
+</body>
+</html>
